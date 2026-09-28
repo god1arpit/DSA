@@ -1,22 +1,20 @@
 class Solution {
 public:
-    int maxDepth(const std::string& s) {
-        int curr_depth = 0;
-        int max_depth = 0;
+    int maxDepth(string s) {
+        int depth = 0;
+        int ans = 0;
 
-        for (char c : s) {
-          
-            if (c == '(') {
-                curr_depth++;
-                max_depth = std::max(max_depth, curr_depth);
+        for (char ch : s) {
+            if (ch == '(') {
+                depth++;
+                if (depth > ans)
+                    ans = depth;
             }
-        
-            else if (c == ')') {
-                curr_depth--;
+            else if (ch == ')') {
+                depth--;
             }
-      
         }
 
-        return max_depth;
+        return ans;
     }
 };
